@@ -17,14 +17,20 @@ var changeShape = function(e){
 context.fillStyle = "blue";
 var draw = function(e){
   if(shape == "rect"){
+    context.lineTo(e.offsetX, e.offsetY);
+    context.stroke();
 	   context.beginPath();
-	    context.rect(e.clientX - 6, e.clientY - 6, 25, 25);
-	     context.fill();
+	   context.rect(e.offsetX, e.offsetY, 25, 25);
+	   context.fill();
+     context.moveTo(e.offsetX, e.offsetY);
     }
   else{
+    context.lineTo(e.offsetX, e.offsetY);
+    context.stroke();
 	   context.beginPath();
-	    context.arc(e.clientX, e.clientY, 12, 0, 2*Math.PI);
-	     context.fill();
+	   context.arc(e.offsetX, e.offsetY, 12, 0, 2*Math.PI);
+	   context.fill();
+     context.moveTo(e.offsetX, e.offsetY);
     }
 }
 
